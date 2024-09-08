@@ -1,0 +1,12 @@
+{
+  "name": "dev-astro",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "web",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": ["esbenp.prettier-vscode", "astro-build.astro-vscode"]
+    }
+  },
+  "remoteUser": "node"
+}

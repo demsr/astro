@@ -1,0 +1,55 @@
+services:
+  #  redis:
+  #    image: redis
+  #    networks:
+  #      - default
+  #  postgres:
+  #    image: postgres
+  #    env_file:
+  #      - ../.env
+  #    networks:
+  #      - default
+  #  pgadmin:
+  #    image: dpage/pgadmin4
+  #    labels:
+  #      - "traefik.enable=true"
+  #      - "traefik.http.routers.dev-faden-pgadmin.rule=Host(`dev.faden.sumser.dev`) && PathPrefix(`/pgadmin`)"
+  #      - "traefik.http.routers.dev-faden-pgadmin.tls=true"
+  #      - "traefik.http.routers.dev-faden-pgadmin.tls.certresolver=sslresolver"
+  #    depends_on:
+  #      - postgres
+  #    env_file:
+  #      - ../.env
+  #    networks:
+  #      - default
+  #      - traefik
+  #    volumes:
+  #      - pgadmin-data:/var/lib/pgadmin
+  web:
+    build: .
+    ports:
+      - 4321
+    restart: unless-stopped
+    volumes:
+      - ..:/workspace:cached
+    #   depends_on:
+    #     - redis
+    #     - postgres
+    networks:
+      - traefik
+      - default
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dev-faden-web.rule=Host(`dev.astro.sumser.dev`)"
+      - "traefik.http.routers.dev-faden-web.tls=true"
+      - "traefik.http.routers.dev-faden-web.tls.certresolver=sslresolver"
+    command: sleep infinity
+    env_file:
+      - ../.env
+    environment:
+      - TZ=Europe/Berlin
+networks:
+  traefik:
+    external: true
+#volumes:
+#  pgadmin-data:
