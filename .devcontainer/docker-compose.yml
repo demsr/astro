@@ -13,9 +13,9 @@ services:
   #    image: dpage/pgadmin4
   #    labels:
   #      - "traefik.enable=true"
-  #      - "traefik.http.routers.dev-faden-pgadmin.rule=Host(`dev.faden.sumser.dev`) && PathPrefix(`/pgadmin`)"
-  #      - "traefik.http.routers.dev-faden-pgadmin.tls=true"
-  #      - "traefik.http.routers.dev-faden-pgadmin.tls.certresolver=sslresolver"
+  #      - "traefik.http.routers.dev-astro-pgadmin.rule=Host(`dev.astro.example.com`) && PathPrefix(`/pgadmin`)"
+  #      - "traefik.http.routers.dev-astro-pgadmin.tls=true"
+  #      - "traefik.http.routers.dev-astro-pgadmin.tls.certresolver=sslresolver"
   #    depends_on:
   #      - postgres
   #    env_file:
@@ -40,9 +40,9 @@ services:
       - default
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.dev-faden-web.rule=Host(`dev.astro.sumser.dev`)"
-      - "traefik.http.routers.dev-faden-web.tls=true"
-      - "traefik.http.routers.dev-faden-web.tls.certresolver=sslresolver"
+      - "traefik.http.routers.dev-astro-web.rule=Host(`dev.astro.example.com`)"
+      - "traefik.http.routers.dev-astro-web.tls=true"
+      - "traefik.http.routers.dev-astro-web.tls.certresolver=sslresolver"
     command: sleep infinity
     env_file:
       - ../.env
