@@ -3,15 +3,28 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.15.4",
     "@astrojs/check": "^0.9.3",
+    "@astrojs/node": "^8.3.3",
+    "astro": "^4.15.4",
+    "bcrypt": "^5.1.1",
+    "ioredis": "^5.4.1",
+    "luxon": "^3.5.0",
+    "nanoid": "^5.0.7",
+    "pg": "^8.12.0",
     "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/luxon": "^3.4.2",
+    "@types/node": "^22.5.5",
+    "@types/pg": "^8.11.10",
+    "prettier": "^3.3.3"
   }
 }
